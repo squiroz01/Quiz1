@@ -1,1 +1,33 @@
+---PUNTO 1
+
+CREATE TABLESPACE big_tbs_your_STIVENQUIROZ DATAFILE  
+'C:\Users\squiroz\Desktop\taller2\datafilepunto1.DBF' SIZE 1024M;
+
+--PUNTO 2
+
+CREATE TABLESPACE quiz DATAFILE
+'C:\Users\squiroz\Desktop\taller2\quiz1.dbf' size 200M,
+'C:\Users\squiroz\Desktop\taller2\quiz2.dbf' size 200M,
+'C:\Users\squiroz\Desktop\taller2\quiz3.dbf' size 200M,
+AUTOEXTEND ON NEXT 600M MAXSIZE 1024M;
+
+--PUNTO 3
+
+CREATE PROFILE STIVEN LIMIT
+CPU_PER_SESSION UNLIMITED
+SESSIONS_PER_USER  	UNLIMITED  
+IDLE_TIME          	15
+FAILED_LOGIN_ATTEMPTS  UNLIMITED ;
+
+
+--PUNTO 4
+
+CREATE USER stivenquiroz
+IDENTIFIED BY stivenquiroz
+DEFAULT TABLESPACE quiz
+PROFILE STIVEN;
+
+--PUNTO 5
+
+GRANT CREATE SESSION TO stivenquiroz;
 
